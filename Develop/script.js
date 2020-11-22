@@ -13,10 +13,7 @@ var askNumbers2;
 var askSpecial2;
 
 var userPick;
-
-
-//global functions
-
+var donePass;
 
 
 // Assignment Code
@@ -25,7 +22,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#Your Secure Password");
 
   passwordText.value = password;
 
@@ -67,6 +64,7 @@ function generatePassword() {
     generatePassword()}
   }
   else {
+    //This function asks the use if they would like to include uppercase letters in their password, if no answer is selected, it runs the function again until a correct answer, yes or no, is selected
     function askUpperFunk(){
       var askUpper = prompt("Would you like to include uppercase letters in the password? Please enter Yes or No.")
       askUpper2 = askUpper.toLocaleLowerCase()
@@ -75,6 +73,7 @@ function generatePassword() {
         askUpperFunk()
       }
     } 
+    //This function asks the use if they would like to include lowercase letters in their password, if no answer is selected, it runs the function again until a correct answer, yes or no, is selected
     function askLowerFunk(){
       var askLower = prompt("Would you like to include lowercase letters in the password? Please enter Yes or No.")
       askLower2 = askLower.toLocaleLowerCase()
@@ -83,6 +82,7 @@ function generatePassword() {
         askLowerFunk()
       }
     }
+    //This function asks the use if they would like to include numbers in their password, if no answer is selected, it runs the function again until a correct answer, yes or no, is selected
     function askNumberFunk(){
       var askNumbers = prompt("Would you like to include numbers in the password? Please enter Yes or No.")
       askNumbers2 = askNumbers.toLocaleLowerCase()
@@ -91,6 +91,7 @@ function generatePassword() {
         askNumberFunk()
       }
     }
+    //This function asks the use if they would like to include special characters in their password, if no answer is selected, it runs the function again until a correct answer, yes or no, is selected
     function askSpecialFunk(){
       var askSpecial = prompt("Would you like to include special characters in the password? Please enter Yes or No.")
       askSpecial2 = askSpecial.toLocaleLowerCase()
@@ -99,6 +100,7 @@ function generatePassword() {
         askSpecialFunk()
       }
     }
+    //these are the functions actually being ran
     askUpperFunk()
     askLowerFunk()
     askNumberFunk()
@@ -177,19 +179,25 @@ function generatePassword() {
     userPick = specialC;
   }
 
-  var password = [];
+  //this is an object to put the completed generated password into
+  var myPassword = [];
 
   //this line will randomly generate the password based off the users selections above
   for (var i = 0; i < promptOne; i++){
     var randomGen = userPick[Math.floor(Math.random() * userPick.length)]
-    password.push(randomGen)
+    myPassword.push(randomGen)
   }
 
-  var donePass = password.join("")
-
-  
+  var donePass = myPassword.join("")
+  boxAnswer(donePass)
+  return donePass
+   
 
   
 } //function generate password ends
+
+function boxAnswer(donePass){
+  document.getElementById("password").textContent = donePass;
+}
 
 
