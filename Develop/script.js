@@ -1,9 +1,20 @@
+
+
 //global variables
 
 var lowerLetter = "acdefghijklmnopqrstuvwxyz"
 var upperLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var theNumbers = "0123456789"
 var specialC = "!@#$^&%*()+=-[]{}|:<>?,.';"
+
+var askUpper2;
+var askLower2;
+var askNumbers2;
+var askSpecial2;
+
+//global functions
+
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -53,27 +64,49 @@ function generatePassword() {
     generatePassword()}
   }
   else {
-  var askUpper = confirm("Would you like to include uppercase letters in the password?)
-  var askLower = confirm("Would you like to include lowercase letters in the password?)
-  var askNumbers = confirm("Would you like to include numbers in the password?)
-  var askSpecial = confirm("Would you like to include special characters in the password?)
-  var askUpper2 = askUpper.toLocaleLowerCase()
-  var askLower2 = askLower.toLocaleLowerCase()
-  var askNumbers2 = askNumbers.toLocaleLowerCase()
-  var askSpecial2 = askSpecial.toLocaleLowerCase()
+    function askUpperFunk(){
+      var askUpper = prompt("Would you like to include uppercase letters in the password? Please enter Yes or No.")
+      askUpper2 = askUpper.toLocaleLowerCase()
+      if(askUpper2 != "yes" && askUpper2 != "no"){
+        alert("You must select enter Yes or No")
+        askUpperFunk()
+      }
+    } 
+    function askLowerFunk(){
+      var askLower = prompt("Would you like to include lowercase letters in the password? Please enter Yes or No.")
+      askLower2 = askLower.toLocaleLowerCase()
+      if(askLower2 != "yes" && askLower2 != "no"){
+        alert("You must select enter Yes or No")
+        askLowerFunk()
+      }
+    }
+    function askNumberFunk(){
+      var askNumbers = prompt("Would you like to include numbers in the password? Please enter Yes or No.")
+      askNumbers2 = askNumbers.toLocaleLowerCase()
+      if(askNumbers2 != "yes" && askNumbers2 != "no"){
+        alert("You must select enter Yes or No")
+        askNumberFunk()
+      }
+    }
+    function askSpecialFunk(){
+      var askSpecial = prompt("Would you like to include special characters in the password? Please enter Yes or No.")
+      askSpecial2 = askSpecial.toLocaleLowerCase()
+      if(askSpecial2 != "yes" && askSpecial2 != "no"){
+        alert("You must select enter Yes or No")
+        askSpecialFunk()
+      }
+    }
+    askUpperFunk()
+    askLowerFunk()
+    askNumberFunk()
+    askSpecialFunk()
+
+    
   }
 
-  console.log(promptOne, askUpper, askLower, askNumbers, askSpecial, askUpper2, askLower2, askNumbers2, askSpecial2)
+
+  
+  
 }
 
 
-
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
