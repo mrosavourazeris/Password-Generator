@@ -5,7 +5,7 @@
 var lowerLetter = ["a","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var upperLetter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var theNumbers = ["0","1","2","3","4","5","6","7","8","9"]
-var specialC = ["!","@","#","$","^","&","%","*","(",")","+","=","-","[","]","{","}","|",":","<",">","?",",",".",",'",";"]
+var specialC = ["!","@","#","$","^","&","%","*","(",")","+","=","-","[","]","{","}","|",":","<",">","?",",",".",",",";"]
 
 var askUpper2;
 var askLower2;
@@ -176,6 +176,20 @@ function generatePassword() {
   else if (askUpper2 === "no" && askLower2 === "no" && askNumbers2 === "no" && askSpecial2 === "yes"){
     userPick = specialC;
   }
-}
+
+  var password = [];
+
+  //this line will randomly generate the password based off the users selections above
+  for (var i = 0; i < promptOne; i++){
+    var randomGen = userPick[Math.floor(Math.random() * userPick.length)]
+    password.push(randomGen)
+  }
+
+  var donePass = password.join("")
+
+  
+
+  
+} //function generate password ends
 
 
