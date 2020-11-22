@@ -159,6 +159,23 @@ function generatePassword() {
     userPick = upperLetter.concat(lowerLetter)
   }
   
+  //1 of the answers is yes and 3 no
+
+  else if (askUpper2 === "yes" && askLower2 === "no" && askNumbers2 === "no" && askSpecial2 === "no"){
+    userPick = upperLetter;
+  }
+
+  else if (askUpper2 === "no" && askLower2 === "yes" && askNumbers2 === "no" && askSpecial2 === "no"){
+    userPick = lowerLetter;
+  }
+
+  else if (askUpper2 === "no" && askLower2 === "no" && askNumbers2 === "yes" && askSpecial2 === "no"){
+    userPick = theNumbers;
+  }
+
+  else if (askUpper2 === "no" && askLower2 === "no" && askNumbers2 === "no" && askSpecial2 === "yes"){
+    userPick = specialC;
+  }
 }
 
 
