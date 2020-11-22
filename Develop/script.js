@@ -24,8 +24,8 @@ generateBtn.addEventListener("click", writePassword);
 // WHEN I click the button to generate a password, THEN I am presented with a series of prompts for password criteria
 function generatePassword() {
   // WHEN prompted for the length of the password, THEN I choose a length of at least 8 characters and no more than 128 characters
-  var promptOne = prompt("How long would you like your password to be? Must be between 8 and 128 characters.")
-  if(promptOne === ""){
+  var promptOne = parseInt(prompt("How long would you like your password to be? Must be between 8 and 128 characters."))
+  if(!promptOne){
     alert("You must enter a number between 8 and 128")
     generatePassword()
   }
@@ -34,7 +34,17 @@ function generatePassword() {
     generatePassword()
   }
   else {
-  console.log(promptOne)}
+  var askUpper = prompt("Would you like to include uppercase letters in the password? Please enter Yes or No.")
+  var askLower = prompt("Would you like to include lowercase letters in the password? Please enter Yes or No.")
+  var askNumbers = prompt("Would you like to include numbers in the password? Please enter Yes or No.")
+  var askSpecial = prompt("Would you like to include special characters in the password? Please enter Yes or No.")
+  var askUpper2 = askUpper.toLocaleLowerCase()
+  var askLower2 = askLower.toLocaleLowerCase()
+  var askNumbers2 = askNumbers.toLocaleLowerCase()
+  var askSpecial2 = askSpecial.toLocaleLowerCase()
+  }
+
+  console.log(askUpper, askLower, askNumbers, askSpecial, askUpper2, askLower2, askNumbers2, askSpecial2)
 }
 
 
