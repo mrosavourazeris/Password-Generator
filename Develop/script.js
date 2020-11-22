@@ -12,15 +12,8 @@ var askLower2;
 var askNumbers2;
 var askSpecial2;
 
-var passUpper;
-var passLower;
-var passNumber;
-var passSpecial;
+var userPick;
 
-var indexUpper = Math.floor(Math.random() * lowerLetter.length);
-var indexLower = Math.floor(Math.random() * upperLetter.length);
-var indexNumber = Math.floor(Math.random() * theNumbers.length);
-var indexSpecial = Math.floor(Math.random() * specialC.length);
 
 //global functions
 
@@ -117,9 +110,9 @@ function generatePassword() {
     generatePassword()
   }
 
-  // else if () {
-
-  // }
+  else if (askUpper2 === "yes" && askLower2 === "yes" && askNumbers2 === "yes" && askSpecial2 === "yes") {
+    userPick = lowerLetter.concat(upperLetter, theNumbers, specialC)
+  }
 
 
   
