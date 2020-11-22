@@ -105,15 +105,35 @@ function generatePassword() {
     askSpecialFunk()
   }
 
+  //all user answers have been no
   if (askUpper2 === "no" && askLower2 === "no" && askNumbers2 === "no" && askSpecial2 === "no"){
     alert("You must select Yes for at least one of the criteria.")
     generatePassword()
   }
 
+  //all of user answers were yes
   else if (askUpper2 === "yes" && askLower2 === "yes" && askNumbers2 === "yes" && askSpecial2 === "yes") {
     userPick = lowerLetter.concat(upperLetter, theNumbers, specialC)
   }
 
+  //3 of the user answers were yes, and 1 was no 
+  else if (askUpper2 === "no" && askLower2 === "yes" && askNumbers2 === "yes" && askSpecial2 === "yes") {
+    userPick = lowerLetter.concat(theNumbers, specialC)
+  }
+
+  else if (askUpper2 === "yes" && askLower2 === "no" && askNumbers2 === "yes" && askSpecial2 === "yes") {
+    userPick = upperLetter.concat(theNumbers, specialC)
+  }
+
+  else if (askUpper2 === "yes" && askLower2 === "yes" && askNumbers2 === "no" && askSpecial2 === "yes") {
+    userPick = upperLetter.concat(lowerLetter, specialC)
+  }
+
+  else if (askUpper2 === "yes" && askLower2 === "yes" && askNumbers2 === "yes" && askSpecial2 === "no") {
+    userPick = upperLetter.concat(lowerLetter, theNumbers)
+  }
+
+  
 
   
   
